@@ -17,11 +17,10 @@ CITATION
 - [Dataset Overview](#dataset-overview)
 - [File Structure](#file-structure)
 - [Data Acquisition](#data-acquisition)
-- [Raw Data Preprocessing](#raw-data-preprocessing)
 - [Data Annotation](#data-annotation)
 - [Data Format](#data-format)
 - [Overview of the Full Workflow](#overview-of-the-full-workflow)
-- [The Preprocessing Pipeline](#the-preprocessing-pipeline)
+- [Raw Data Preprocessing](#raw-data-preprocessing)
 - [Final Trained Model](#final-trained-model)
 - [Source Code Usage](#source-code-usage)
   - [Running Preprocessing](#running-preprocessing)
@@ -60,7 +59,7 @@ The data was collected using the LeasyScan high-throughput phenotyping platform,
 
 ---
 
-## File Structure
+## Dataset Structure
 
 ```bash
 root/
@@ -85,40 +84,31 @@ root/
 
 ## Data Acquisition
 
-The presented data were generated using a commercially available PlantEye technology (F600), combining 3D scanning with multispectral imaging ([Phenospex PlantEye F600](https://phenospex.com/products/plant-phenotyping/planteye-f600-multispectral-3d-scanner-for-plants/)).
+The presented data were generated using a commercially available PlantEye technology (F600), which is a unique plant phenotyping sensor that combines a 3D scanner with multispectral imaging ([PlantEye F600 multispectral 3D scanner for plants - PHENOSPEX](https://phenospex.com/products/plant-phenotyping/planteye-f600-multispectral-3d-scanner-for-plants/)).
+The provided data comes from three regular experimentations in 2022 and 2023 at the ICRISAT field (located in Hyderabad, India). Please see the published paper for details. 
 
 ---
 
-## Raw Data Preprocessing
-
-The dataset includes a preprocessing code that performs:
-
-1. **Rotation** to align point clouds.
-2. **Merging** the two scanner outputs into one file.
-3. **Voxelization** to adjust resolution.
-4. **Soil Segmentation** using AI-based algorithms.
-
----
 
 ## Data Annotation
+The data were annotated using the online platform Segments.ai (https://segments.ai) under an academic license.
+Annotations are provided for the following plant organs:
 
-Annotations were created using the Segments.ai platform under an academic license for the following plant organs:
+*   Embryonic leaf
+*   Leaf
+*   Petiole
+*   Stem
+*   Plant
 
-- Embryonic leaf
-- Leaf
-- Petiole
-- Stem
-- Plant
-
----
+The Plant class was added for the plants that are, e.g., distorted by wind and do not allow humans to distinguish the plant organs.
 
 ## Data Format
 
-- Raw point clouds in **.PLY format** [(Details)](https://paulbourke.net/dataformats/ply/)
-- Annotated point clouds in **.PCD format** [(Details)](https://pcl.readthedocs.io/projects/tutorials/en/latest/pcd_file_format.html)
-- Annotations:
-  - KITTI format cuboids
-  - Segments.ai segmentation format
+* Raw data are proviuded in **.PLY format**; see https://paulbourke.net/dataformats/ply/ for details. 
+* Annotated point clouds are provided in **.PCD format**; see https://pcl.readthedocs.io/projects/tutorials/en/latest/pcd_file_format.html for details.
+* Annotations:
+  * Generated cuboids are using KITTI format; see https://github.com/dtczhl/dtc-KITTI-For-Beginners/blob/master/README.md for details.
+  * Segmentation annotations are in the original format from the Segments.ai platform, see `Segments-ai annotation format.md`.
 
 ---
 
@@ -128,21 +118,24 @@ The full methodology for data acquisition, preprocessing, annotation, model trai
 
 ![Overview Pipeline](figures/overview_pipeline.png)
 
+
 ---
 
-# 🔹 The Preprocessing Pipeline
+## Raw Data Preprocessing
 
-The preprocessing pipeline standardizes raw scanner data for model training through:
+The dataset includes a preprocessing code that can be used for the raw point cloud data. The key steps include:
 
-- **Rotation** to align plant surfaces.
-- **Merging** two scanner views into a unified point cloud.
-- **Voxelization** to standardize point density.
-- **Color Smoothing** to reduce noise in color channels.
+1.  **Rotation** of point clouds to align the plant on the x-plane.
+2.  **Merging** merging the point clouds from the two scanners into one file.
+3.  **Voxelization** to adjust the resolution of the point cloud.
+4.  **Soil Segmentation** to separate plants from soil and trays using AI-based algorithms.
 
+Refer to the published paper for detailed description.
+ 
 ![Preprocessing Steps](figures/preprocessing.png)
 
-
 ---
+
 
 # 🔹 Final Trained Model
 
