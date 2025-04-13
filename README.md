@@ -187,16 +187,8 @@ Hyperparameter tuning using [Keras Tuner Documentation](https://keras.io/keras_t
 # 🔹 Example Outputs
 
 ### 🔹 Leaf Area Estimation Results
-
-<p align="center">
-  <img src="figures/results_la_mape.png" width="45%" />
-  <img src="figures/results_la_r2.png" width="45%" />
-</p>
-
-<p align="center">
-  <img src="figures/example_segmentation.png" width="90%" />
-</p>
-
+ 
+![](figures/example_segmentation.png)
 ---
 
 ### 🔹 Example Segmentation Comparison
