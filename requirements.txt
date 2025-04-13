@@ -1,0 +1,6 @@
+tensorflow
+keras
+numpy
+matplotlib
+scikit-learn
+open3d
