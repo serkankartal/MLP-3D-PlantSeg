@@ -1,19 +1,25 @@
-# Annotated 3D Point Cloud Dataset of High-Throughput Plant Scans
+# Annotated 3D Point Cloud Dataset of High-Throughput Plant Scans and AI-Based Background Segmentation
 
 Living [repository](https://github.com/kit-pef-czu-cz/3d-point-cloud-dataset-plants) of **3D Point Cloud plant scans**. This dataset provides high-throughput, organ-level annotated 3D point cloud scans of plants, collected using the LeasyScan phenotyping platform.
 
 The original, fixed repository can be found at Figshare: https://doi.org/10.6084/m9.figshare.28270742 
 
-If you find the the dataset useful, please cite the original paper **Annotated 3D Point Cloud Dataset of Broad-Leaf Legumes Captured by High-Throughput Phenotyping Platform** published in Scientific Data:
+If you find the dataset useful, please cite the original paper **Annotated 3D Point Cloud Dataset of Broad-Leaf Legumes Captured by High-Throughput Phenotyping Platform** published in Scientific Data:
+
 ```
 CITATION
 ```
+
 ---
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)
-- [Repository Structure](#repository-structure)
+- [Dataset Overview](#dataset-overview)
+- [File Structure](#file-structure)
+- [Data Acquisition](#data-acquisition)
+- [Raw Data Preprocessing](#raw-data-preprocessing)
+- [Data Annotation](#data-annotation)
+- [Data Format](#data-format)
 - [The Preprocessing Pipeline](#the-preprocessing-pipeline)
 - [Final Trained Model](#final-trained-model)
 - [Source Code Usage](#source-code-usage)
@@ -22,162 +28,163 @@ CITATION
   - [Training or Retraining the Model](#training-or-retraining-the-model)
 - [Example Outputs](#example-outputs)
 - [License](#license)
+- [Contributing-Collaborating](#contributing-collaborating)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
 ---
 
-## Project Overview
+## Dataset Overview
 
-Accurate background segmentation in 3D plant phenotyping is critical for extracting reliable plant traits.  
-Traditional methods like height thresholding often lead to data loss, especially for small or prostrate plants.
+This dataset includes annotated 3D point cloud scans of several plant species for various plant organs (e.g., embryonic leaves, petioles, stems, etc.).  
+The data was collected using the LeasyScan high-throughput phenotyping platform, which uses **Phenospex PlantEye F600** scanners.
 
-In this project, we propose a simple, yet powerful AI-driven approach using a **Multi-Layer Perceptron (MLP)** model trained on RGB, XYZ (spatial), and NIR (near-infrared) features.  
-The model achieved:
-
-- **99.93%** classification accuracy
-- Significant improvement in **leaf area (LA) estimation**
-- High **generalization capability** to external datasets
+| Name                                               | 	Count |
+|----------------------------------------------------|--------|
+| **Total number of scans**                          | 	223   |
+| Scans of common bean species                       | 	50    |
+| Scans of cowpea species                            | 	45    |
+| Scans of lima bean species                         | 	58    |
+| Scans of mungbean species                          | 	71    |
+| **Scans with all plants annotated using organs**   | 	141   |
+| Scans containing plants unannotated using organs   | 	85    |
+| Scans containing some unannotated plants           | 	3     |
+| **Annotated classes**                              | 	5     |
+| **Annotated objects (all classes)**                | 	3,712 |
+| Annotated objects (Embryonic leaf)                 | 	1287  |
+| Annotated objects (Leaf)                           | 	1224  |
+| Annotated objects (Petiole)                        | 	814   |
+| Annotated objects (Stem)                           | 	88    |
+| Annotated objects (Plant)                          | 	299   |
 
 ---
 
-## Repository Structure
+## File Structure
 
 ```bash
-MLP-3D-PlantSeg/
-│
-├── README.md
-├── LICENSE.md
+root/
 │
 ├── data/
-│   ├── raw/
-│   ├── preprocessed/
-│   ├── trained_model/
-│   └── results/
+│   ├── Generated cuboid annotations/
+│   ├── Point clouds/
+│   ├── Annotation data.csv
+│   ├── Raw data.zip
+│   ├── Segments-ai annotation format.md
+│   └── Segments-ai annotations.json
 │
 ├── code/
-│   ├── preprocessing.py
-│   ├── train_model.py
-│   ├── inference.py
-│   └── utils.py
+│   ├── preprocess.py
+│   └── generate_cuboids.py
 │
-├── figures/
-│   ├── overview_pipeline.png
-│   ├── model_architecture.png
-│   ├── results_la_mape.png
-│   ├── results_la_r2.png
-│   ├── example_segmentation.png
-│   ├── daily_pointcounts.png
-│   ├── paris_lille_result.png
-│   └── README_figures.md
-│
-└── requirements.txt
+├── LICENSE.md
+└── README.md
 ```
 
 ---
 
-## The Preprocessing Pipeline
+## Data Acquisition
 
-Our preprocessing transforms raw 3D scanner data into ready-to-use input for model training.
+The presented data were generated using a commercially available PlantEye technology (F600), combining 3D scanning with multispectral imaging ([Phenospex PlantEye F600](https://phenospex.com/products/plant-phenotyping/planteye-f600-multispectral-3d-scanner-for-plants/)).
 
-**Steps:**
-1. **Rotation** to align plant surfaces.
-2. **Merging** two scanner views into a unified point cloud.
-3. **Voxelization** to standardize point density.
-4. **Color Smoothing** to reduce noise in RGB and NIR channels.
+---
 
-Each point cloud file after preprocessing contains:
-- X, Y, Z coordinates
-- RGB color values
-- NIR reflectance values
+## Raw Data Preprocessing
+
+The dataset includes a preprocessing code that performs:
+
+1. **Rotation** to align point clouds.
+2. **Merging** the two scanner outputs into one file.
+3. **Voxelization** to adjust resolution.
+4. **Soil Segmentation** using AI-based algorithms.
+
+---
+
+## Data Annotation
+
+Annotations were created using the Segments.ai platform under an academic license for the following plant organs:
+
+- Embryonic leaf
+- Leaf
+- Petiole
+- Stem
+- Plant
+
+---
+
+## Data Format
+
+- Raw point clouds in **.PLY format** [(Details)](https://paulbourke.net/dataformats/ply/)
+- Annotated point clouds in **.PCD format** [(Details)](https://pcl.readthedocs.io/projects/tutorials/en/latest/pcd_file_format.html)
+- Annotations:
+  - KITTI format cuboids
+  - Segments.ai segmentation format
+
+---
+
+# 🔹 The Preprocessing Pipeline
+
+The preprocessing pipeline standardizes raw scanner data for model training:
+
+- **Rotation**
+- **Merging**
+- **Voxelization**
+- **Color Smoothing**
 
 **Workflow Overview:**  
 ![Overview Pipeline](figures/overview_pipeline.png)
 
-This standardization significantly improves model performance and reduces noise.
-
 ---
 
-## Final Trained Model
+# 🔹 Final Trained Model
 
-The final background segmentation model is a **Multi-Layer Perceptron (MLP)** with the following configuration:
+The background segmentation model is a **Multi-Layer Perceptron (MLP)** with:
 
 - **Input:** 7 features (RGB + XYZ + NIR)
-- **Hidden layers:** 3 layers (10 - 50 - 50 neurons)
+- **Hidden layers:** 10-50-50 neurons
 - **Activation:** ReLU
 - **Output:** 1 neuron (sigmoid activation)
-
-The model was optimized using **Bayesian Optimization** and trained with early stopping to avoid overfitting.
 
 **Model Architecture:**  
 ![Model Architecture](figures/model_architecture.png)
 
-The final model achieved:
-- **99.93% classification accuracy**
-- Very low false positives and false negatives
-
 ---
 
-## Source Code Usage
+# 🔹 Source Code Usage
 
 > ⚠️ **Note:** `.py` source code files are currently placeholders.  
-> The full code will be uploaded after paper acceptance and publication.
-
-Despite this, the project structure and intended workflow are ready.
+> Full code will be uploaded after paper acceptance.
 
 ---
 
-### Running Preprocessing
-
-Preprocess raw point cloud data:
+## Running Preprocessing
 
 ```bash
 python code/preprocessing.py --input_folder data/raw --output_folder data/preprocessed
 ```
 
-This script will perform:
-- Rotation
-- Merging
-- Voxelization
-- Color smoothing
-
-Preprocessed files are saved into `data/preprocessed/`.
-
 ---
 
-### Running Inference
-
-Run background segmentation inference on preprocessed data:
+## Running Inference
 
 ```bash
 python code/inference.py --model_path data/trained_model/final_mlp_model.h5 --input_folder data/preprocessed --output_folder data/results
 ```
 
-The output will be point cloud files with plant/background labels.
-
 ---
 
-### Training or Retraining the Model
-
-Train the MLP model from scratch or fine-tune it:
+## Training or Retraining the Model
 
 ```bash
 python code/train_model.py --data_folder data/preprocessed --save_model_to data/trained_model
 ```
 
-Model hyperparameters can be tuned using [Keras Tuner Documentation](https://keras.io/keras_tuner/).
-
-Recommended configurations:
-- 3 hidden layers
-- ReLU activations
-- Adam optimizer
+Hyperparameter tuning using [Keras Tuner Documentation](https://keras.io/keras_tuner/).
 
 ---
 
-## Example Outputs
+# 🔹 Example Outputs
 
 ### 🔹 Leaf Area Estimation Results
-
 
 <p align="center">
   <img src="figures/results_la_mape.png" width="45%" />
@@ -187,47 +194,50 @@ Recommended configurations:
 <p align="center">
   <img src="figures/example_segmentation.png" width="90%" />
 </p>
+
 ---
 
 ### 🔹 Example Segmentation Comparison
 
-Comparison between coordinate-based and AI-based segmentation:
+![](figures/example_segmentation_1.png)
 
-![Example Segmentation](figures/example_segmentation_1.png)
 ![](figures/example_segmentation_2.png)
----
 
- 
 ---
 
 ### 🔹 Generalization on Paris-Lille Dataset
-
-Testing model generalization to non-agricultural 3D point clouds:
 
 ![Paris-Lille Result](figures/paris_lille_result.png)
 
 ---
 
-## License
+# License
 
-This project is licensed under the [Apache License 2.0](LICENSE.md).
-
----
-
-## Acknowledgements
-
-- CZU Prague
-- ICRISAT
-- Phenospex
-- Segments.ai
+This dataset and associated code are released under the [Apache License 2.0](LICENSE.md).
 
 ---
 
-## Contact
+# Contributing-Collaborating
+
+We welcome ideas and collaborations!  
+Feel free to reach out for data extension or model improvements.
+
+---
+
+# Acknowledgements
+
+- CZU Prague (Czech University of Life Sciences Prague)
+- ICRISAT (International Crops Research Institute for the Semi-Arid Tropics)
+- Phenospex (scanner manufacturer)
+- Segments.ai (annotation platform)
+
+---
+
+# Contact
 
 - **Serkan Kartal** – [Your Email]
-- **Jan Masner** – masner@pef.czu.cz
-- **Jana Kholová** – kholova@pef.czu.cz
+- **Jan Masner** – [masner@pef.czu.cz](mailto:masner@pef.czu.cz)
+- **Jana Kholová** – [kholova@pef.czu.cz](mailto:kholova@pef.czu.cz)
 
 ---
 _"Enhancing 3D plant phenotyping through efficient and robust AI-based background segmentation."_
