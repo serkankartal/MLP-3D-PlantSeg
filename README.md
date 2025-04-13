@@ -4,12 +4,6 @@
 
 ## Paper and Citation
 
-**Title:** Using MLP to Improve Background Segmentation of 3D Plant Scans and Accuracy of Trait Assessment in Phenomics  
-**Authors:** SK, JM, TharanyaM, JK, AG, RekhaB, Vojtěch Mikeš, KIT, PSX  
-**Target Journal:** IEEE Access (under submission)  
-**Link:** (will be updated after publication)
-
-**Citation:**
 ```
 To be updated after publication.
 ```
