@@ -1,4 +1,4 @@
-# Annotated 3D Point Cloud Dataset of High-Throughput Plant Scans and AI-Based Background Segmentation
+# Annotated 3D Point Cloud Dataset of High-Throughput Plant Scans 
 
 Living [repository](https://github.com/kit-pef-czu-cz/3d-point-cloud-dataset-plants) of **3D Point Cloud plant scans**. This dataset provides high-throughput, organ-level annotated 3D point cloud scans of plants, collected using the LeasyScan phenotyping platform.
 
@@ -20,6 +20,7 @@ CITATION
 - [Raw Data Preprocessing](#raw-data-preprocessing)
 - [Data Annotation](#data-annotation)
 - [Data Format](#data-format)
+- [Overview of the Full Workflow](#overview-of-the-full-workflow)
 - [The Preprocessing Pipeline](#the-preprocessing-pipeline)
 - [Final Trained Model](#final-trained-model)
 - [Source Code Usage](#source-code-usage)
