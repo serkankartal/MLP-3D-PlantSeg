@@ -196,7 +196,7 @@ Hyperparameter tuning using [Keras Tuner Documentation](https://keras.io/keras_t
 
 ---
 
-### 🔹 Example Segmentation Comparison
+### 🔹 Whole .ply File Segmentation 
 
 ![](figures/example_segmentation_1.png)
 
