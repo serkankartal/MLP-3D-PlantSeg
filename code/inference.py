@@ -1,1 +1,1 @@
-# Inference script placeholder
+# Placeholder for inference script

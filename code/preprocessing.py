@@ -1,1 +1,1 @@
-# Preprocessing script placeholder
+# Placeholder for preprocessing script

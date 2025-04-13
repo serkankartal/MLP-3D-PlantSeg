@@ -1,1 +1,1 @@
-# Model training script placeholder
+# Placeholder for model training script
