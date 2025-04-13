@@ -189,6 +189,11 @@ Hyperparameter tuning using [Keras Tuner Documentation](https://keras.io/keras_t
 ### 🔹 Leaf Area Estimation Results
  
 ![](figures/example_segmentation.png)
+
+<p align="center">
+<em>This figure shows example point clouds of chickpea plants after background segmentation. Black points represent plant structures identified by the classical coordinate-based method, while red points correspond to additional plant structures successfully recovered by the AI-based method.</em>
+</p>
+
 ---
 
 ### 🔹 Example Segmentation Comparison
