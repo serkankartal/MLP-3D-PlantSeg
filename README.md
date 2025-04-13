@@ -235,11 +235,12 @@ Feel free to reach out for data extension or model improvements.
 
 ---
 
-# Contact
+## Contact
 
-- **Serkan Kartal** – [Your Email]
-- **Jan Masner** – [masner@pef.czu.cz](mailto:masner@pef.czu.cz)
-- **Jana Kholová** – [kholova@pef.czu.cz](mailto:kholova@pef.czu.cz)
+For questions or collaborations, please contact:
+
+* **Jan Masner**: CZU Prague; [masner@pef.czu.cz](mailto:masner@pef.czu.cz) (technical area)
+* or **Jana Kholová**: CZU Prague and ICRISAT (formerly); [kholova@pef.czu.cz](mailto:kholova@pef.czu.cz) (plant phenotyping)
 
 ---
 _"Enhancing 3D plant phenotyping through efficient and robust AI-based background segmentation."_
