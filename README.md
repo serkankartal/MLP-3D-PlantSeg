@@ -121,17 +121,25 @@ Annotations were created using the Segments.ai platform under an academic licens
 
 ---
 
+ # 🔹 Overview of the Full Workflow
+
+The full methodology for data acquisition, preprocessing, annotation, model training, and evaluation is illustrated below.
+
+![Overview Pipeline](figures/overview_pipeline.png)
+
+---
+
 # 🔹 The Preprocessing Pipeline
 
-The preprocessing pipeline standardizes raw scanner data for model training:
+The preprocessing pipeline standardizes raw scanner data for model training through:
 
-- **Rotation**
-- **Merging**
-- **Voxelization**
-- **Color Smoothing**
+- **Rotation** to align plant surfaces.
+- **Merging** two scanner views into a unified point cloud.
+- **Voxelization** to standardize point density.
+- **Color Smoothing** to reduce noise in color channels.
 
-**Workflow Overview:**  
-![Overview Pipeline](figures/overview_pipeline.png)
+![Preprocessing Steps](figures/preprocessing.png)
+
 
 ---
 
