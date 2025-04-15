@@ -22,6 +22,7 @@ CITATION
 - [Overview of the Full Workflow](#overview-of-the-full-workflow)
 - [Raw Data Preprocessing](#raw-data-preprocessing)
 - [Final Trained Model](#final-trained-model)
+- [Sample Dataset](#sample-dataset)
 - [Source Code Usage](#source-code-usage)
   - [Running Preprocessing](#running-preprocessing)
   - [Running Inference](#running-inference)
@@ -149,6 +150,22 @@ The background segmentation model is a **Multi-Layer Perceptron (MLP)** with:
 **Model Architecture:**  
 ![Model Architecture](figures/model_architecture.png)
 
+---
+## 🌱 Sample Dataset
+
+We provide a sample dataset for the chickpea plant to demonstrate the output of both our proposed pipeline and the classical method.
+
+### 📦 Contents:
+- Raw 3D scans from two different camera views
+- Segmented output using our proposed **AI-based method**
+- Segmented output using a **classical height-based approach**
+
+📥 **Download the sample dataset (~200MB)**:  
+👉 [View on Figshare](https://figshare.com/articles/dataset/Sample_3D_Chickpea_Dataset_for_AI-Based_and_Classical_Plant_Segmentation/28796219)
+
+> 🛑 The full dataset and intermediate results will be released after the publication of our related research article.  
+> If you need early access, please contact us.
+> 
 ---
 
 # 🔹 Source Code Usage
