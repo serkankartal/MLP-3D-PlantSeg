@@ -186,7 +186,7 @@ Hyperparameter tuning using [Keras Tuner Documentation](https://keras.io/keras_t
 
 # 🔹 Example Outputs
 
-### 🔹 Leaf Area Estimation Results
+### 🔹 Leaf Points Segmentation Results
  
 ![](figures/example_segmentation.png)
 
