@@ -34,64 +34,73 @@ Please cite as:
 - [Sample Dataset](#sample-dataset)
 - [License](#license)
 - [Contributing & Contact](#contributing--contact)
+ 
 
 ---
 
-## Overview of the Full Workflow
+ # 🔹 Overview of the Full Workflow
 
 The overall workflow includes data preprocessing, annotation, model training and evaluation:
 
 ![Overview Pipeline](figures/overview_pipeline.png)
 
-<p align="center">
-<em>Overall pipeline of preprocessing, training, and evaluation.</em>
-</p>
 
 ---
 
-## The Preprocessing Pipeline
+## Raw Data Preprocessing
 
-Preprocessing transforms raw scanner data before model input:
+The dataset includes a preprocessing code that can be used for the raw point cloud data. The key steps include:
 
-- Rotation (align scans)
-- Merging dual scanner outputs
-- Voxelization
-- Color smoothing
+1.  **Rotation** of point clouds to align the plant on the x-plane.
+2.  **Merging** merging the point clouds from the two scanners into one file.
+3.  **Voxelization** to adjust the resolution of the point cloud.
+4.  **Soil Segmentation** to separate plants from soil and trays using AI-based algorithms.
 
+Refer to the published paper for detailed description.
+ 
 ![Preprocessing Steps](figures/preprocessing.png)
 
-<p align="center">
-<em>Detailed preprocessing steps for preparing input data.</em>
-</p>
-
 ---
 
-## Final Trained Model
 
-A Multi-Layer Perceptron (MLP) model trained with:
+# 🔹 Final Trained Model
 
-- **Input:** 8 features (R, G, B, NIR, X, Y, Z)
-- **Hidden Layers:** 10-50-50 neurons
-- **Activation:** ReLU (hidden), Sigmoid (output)
-- **Loss:** Binary Crossentropy
-- **Optimization:** Adam, early stopping
+The background segmentation model is a **Multi-Layer Perceptron (MLP)** with:
 
+- **Input:** 7 features (RGB + XYZ + NIR)
+- **Hidden layers:** 10-50-50 neurons
+- **Activation:** ReLU
+- **Output:** 1 neuron (sigmoid activation)
+
+**Model Architecture:**  
 ![Model Architecture](figures/model_architecture.png)
 
-<p align="center">
-<em>Architecture of the binary classifier model.</em>
-</p>
+---
+## 🌱 Sample Dataset
+
+We provide a sample dataset for the chickpea plant to demonstrate the output of both our proposed pipeline and the classical method.
+
+### 📦 Contents:
+- Raw 3D scans from two different camera views
+- Segmented output using our proposed **AI-based method**
+- Segmented output using a **classical height-based approach**
+
+📥 **Download the sample dataset (~200MB)**:  
+👉 [View on Figshare](https://figshare.com/articles/dataset/Sample_3D_Chickpea_Dataset_for_AI-Based_and_Classical_Plant_Segmentation/28796219)
+
+> 🛑 The full dataset and intermediate results will be released after the publication of our related research article.  
+> If you need early access, please contact us.
+> 
+---
+
+# 🔹 Source Code Usage
+
+> ⚠️ **Note:** `.py` source code files are currently placeholders.  
+> Full code will be uploaded after paper acceptance.
 
 ---
 
-## Source Code Usage
-
-> ⚠️ **Note:** The following scripts are currently placeholders.  
-> Full code will be available after paper acceptance.
-
----
-
-### Running Preprocessing
+## Running Preprocessing
 
 ```bash
 python code/preprocessing.py --input_folder data/raw --output_folder data/preprocessed
@@ -99,7 +108,7 @@ python code/preprocessing.py --input_folder data/raw --output_folder data/prepro
 
 ---
 
-### Running Inference
+## Running Inference
 
 ```bash
 python code/inference.py --model_path data/trained_model/final_mlp_model.h5 --input_folder data/preprocessed --output_folder data/results
@@ -107,21 +116,21 @@ python code/inference.py --model_path data/trained_model/final_mlp_model.h5 --in
 
 ---
 
-### Training or Retraining the Model
+## Training or Retraining the Model
 
 ```bash
 python code/train_model.py --data_folder data/preprocessed --save_model_to data/trained_model
 ```
 
-> Hyperparameter tuning performed using [Keras Tuner](https://keras.io/keras_tuner/)
+Hyperparameter tuning using [Keras Tuner Documentation](https://keras.io/keras_tuner/).
 
 ---
 
-## Example Outputs
+# 🔹 Example Outputs
 
-### Leaf Points Segmentation
-
-![Example Segmentation](figures/example_segmentation.png)
+### 🔹 Leaf Points Segmentation Results
+ 
+![](figures/example_segmentation.png)
 
 <p align="center">
 <em>This figure shows example point clouds of chickpea plants after background segmentation. Black points represent plant structures identified by the classical coordinate-based method, while red points correspond to additional plant structures successfully recovered by the AI-based method.</em>
@@ -129,68 +138,48 @@ python code/train_model.py --data_folder data/preprocessed --save_model_to data/
 
 ---
 
-### Whole Plant Segmentation Examples
+### 🔹 Whole .ply File Segmentation 
 
-![](figures/example_segmentation_1.png)  
+![](figures/example_segmentation_1.png)
+
 ![](figures/example_segmentation_2.png)
 
 ---
 
-### Trait Estimation Metrics
-
-<p align="center">
-  <img src="figures/results_la_mape.png" width="48%"/> 
-  <img src="figures/results_la_r2.png" width="48%"/>
-</p>
-
-<p align="center">
-<em>Evaluation of Leaf Area Estimation across species and voxel resolutions.</em>
-</p>
-
----
-
-### Generalization to Urban Data
+### 🔹 Generalization on Paris-Lille Dataset
 
 ![Paris-Lille Result](figures/paris_lille_result.png)
 
-<p align="center">
-<em>Inference result on the Paris-Lille urban 3D point cloud dataset shows effective ground-object separation.</em>
-</p>
+---
+
+# License
+
+This dataset and associated code are released under the [Apache License 2.0](LICENSE.md).
 
 ---
 
-## Sample Dataset
+# Contributing-Collaborating
 
-We provide a sample dataset for the chickpea plant to demonstrate the output of both our proposed pipeline and the classical method.
-
-### Contents:
-- Raw 3D scans from two different camera views
-- Segmented output using our proposed **AI-based method**
-- Segmented output using a **classical height-based approach**
-
-**Download the sample dataset (~200MB):**  
-[View on Figshare](https://figshare.com/articles/dataset/Sample_3D_Chickpea_Dataset_for_AI-Based_and_Classical_Plant_Segmentation/28796219)
-
-> Note: The full dataset and intermediate results will be released after the publication of our related research article.  
-> If you need early access, please contact us.
+We welcome ideas and collaborations!  
+Feel free to reach out for data extension or model improvements.
 
 ---
 
-## License
+# Acknowledgements
 
-Licensed under the Apache License 2.0.  
-See [LICENSE.md](LICENSE.md)
-
----
-
-## Contributing & Contact
-
-We welcome collaboration!
-
-- **Serkan Kartal (Çukurova University):** [serkankartal@cu.edu.tr](mailto:serkankartal@cu.edu.tr)  
-- **Jan Masner (CZU Prague):** [masner@pef.czu.cz](mailto:masner@pef.czu.cz)  
-- **Jana Kholová (CZU, ICRISAT):** [kholova@pef.czu.cz](mailto:kholova@pef.czu.cz)
+- CZU Prague (Czech University of Life Sciences Prague)
+- ICRISAT (International Crops Research Institute for the Semi-Arid Tropics)
+- Phenospex (scanner manufacturer)
+- Segments.ai (annotation platform)
 
 ---
 
-_“Enhancing 3D plant phenotyping through efficient and robust AI-based background segmentation.”_
+## Contact
+
+For questions or collaborations, please contact:
+
+* **Jan Masner**: CZU Prague; [masner@pef.czu.cz](mailto:masner@pef.czu.cz) (technical area)
+* or **Jana Kholová**: CZU Prague and ICRISAT (formerly); [kholova@pef.czu.cz](mailto:kholova@pef.czu.cz) (plant phenotyping)
+
+---
+_"Enhancing 3D plant phenotyping through efficient and robust AI-based background segmentation."_
