@@ -152,34 +152,22 @@ Hyperparameter tuning using [Keras Tuner Documentation](https://keras.io/keras_t
 
 ---
 
-# License
+## License
 
 This dataset and associated code are released under the [Apache License 2.0](LICENSE.md).
 
 ---
 
-# Contributing-Collaborating
+
+## Contributing & Contact
 
 We welcome ideas and collaborations!  
 Feel free to reach out for data extension or model improvements.
 
----
+- **Serkan Kartal (Çukurova University):** [serkankartal@cu.edu.tr](mailto:serkankartal@cu.edu.tr)  
+- **Jan Masner (CZU Prague):** [masner@pef.czu.cz](mailto:masner@pef.czu.cz)  
+- **Jana Kholová (CZU, ICRISAT):** [kholova@pef.czu.cz](mailto:kholova@pef.czu.cz)
 
-# Acknowledgements
-
-- CZU Prague (Czech University of Life Sciences Prague)
-- ICRISAT (International Crops Research Institute for the Semi-Arid Tropics)
-- Phenospex (scanner manufacturer)
-- Segments.ai (annotation platform)
-
----
-
-## Contact
-
-For questions or collaborations, please contact:
-
-* **Jan Masner**: CZU Prague; [masner@pef.czu.cz](mailto:masner@pef.czu.cz) (technical area)
-* or **Jana Kholová**: CZU Prague and ICRISAT (formerly); [kholova@pef.czu.cz](mailto:kholova@pef.czu.cz) (plant phenotyping)
 
 ---
 _"Enhancing 3D plant phenotyping through efficient and robust AI-based background segmentation."_
