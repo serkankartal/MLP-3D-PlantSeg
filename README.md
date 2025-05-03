@@ -37,32 +37,6 @@ Please cite as:
 
 ---
 
-## Repository Structure
-
-```bash
-MLP-3D-PlantSeg/
-├── code/
-│   ├── preprocessing.py      # Placeholder
-│   ├── train_model.py        # Placeholder
-│   ├── inference.py          # Placeholder
-├── data/
-│   └── sample/               # Sample dataset
-├── figures/
-│   ├── overview_pipeline.png
-│   ├── preprocessing.png
-│   ├── model_architecture.png
-│   ├── example_segmentation_1.png
-│   ├── example_segmentation_2.png
-│   ├── example_segmentation.png
-│   ├── paris_lille_result.png
-│   ├── results_la_mape.png
-│   └── results_la_r2.png
-├── README.md
-└── LICENSE.md
-```
-
----
-
 ## Overview of the Full Workflow
 
 The overall workflow includes data preprocessing, annotation, model training and evaluation:
