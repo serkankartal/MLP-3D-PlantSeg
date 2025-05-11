@@ -106,10 +106,10 @@ Your raw scan files must follow the same structure as the sample data provided. 
 
 ```
 
-data/raw\_data/
-├── barcode\_001/
-│   ├── scan\_001\_a.ply
-│   └── scan\_001\_b.ply
+data/raw_data/
+├── barcode_001/
+│   ├── scan_001_a.ply
+│   └── scan_001_b.ply
 
 ```
 
