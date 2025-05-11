@@ -26,6 +26,7 @@ Please cite as:
 - [Overview of the Full Workflow](#overview-of-the-full-workflow)
 - [The Preprocessing Pipeline](#the-preprocessing-pipeline)
 - [Final Trained Model](#final-trained-model)
+- [Processing Your Own Raw Data](#processing-your-own-raw-data)
 - [Source Code Usage](#source-code-usage)
   - [Running Preprocessing](#running-preprocessing)
   - [Running Inference](#running-inference)
