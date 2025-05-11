@@ -91,7 +91,62 @@ We provide a sample dataset for the chickpea plant to demonstrate the output of 
 > 🛑 The full dataset and intermediate results will be released after the publication of our related research article.  
 > If you need early access, please contact us.
 > 
----
+---  
+
+## 🔄 Processing Your Own Raw Data
+
+To process your own 3D plant scans using the AI-based segmentation pipeline provided in this repository, follow the simple steps below. The entire workflow—from raw data preprocessing to AI-driven background segmentation and final trait estimation—is fully automated after placing your raw files in the appropriate folder.
+
+### 🗂️ Required Input Format
+
+Your raw scan files must follow the same structure as the sample data provided. Each scan should consist of two `.ply` files (from the two scanner angles) for each barcode (i.e., microplot sector).
+
+* Example:
+
+```
+
+data/raw\_data/
+├── barcode\_001/
+│   ├── scan\_001\_a.ply
+│   └── scan\_001\_b.ply
+
+```
+
+### ⚙️ Automatic Processing Steps
+
+Once your data is placed in the `data/raw_data/` directory, the following pipeline is triggered step-by-step:
+
+1. **Raw Data Preprocessing**
+
+ * Rotates scans for alignment on the x-plane.
+ * Merges dual scans into a single unified point cloud.
+ * Applies voxelization to reduce data density and normalize point distribution.
+ * Performs outlier smoothing to standardize color values across leaf surfaces.
+
+2. **AI-Based Background Segmentation**
+
+ * The preprocessed data is passed through the pre-trained MLP model.
+ * Each point is classified as **plant** or **background** using RGB, NIR, and XYZ features.
+
+3. **Microplot Separation and Trait Estimation**
+
+ * Plant points are cropped based on tray coordinates.
+ * Prepared outputs are sent to Phenospex’s Phena binary for **leaf area estimation** and further trait analysis.
+
+### 📤 Output Files
+
+Intermediate and final outputs are automatically saved into the following directories:
+
+* `data/preprocessed/` – Voxelized and smoothed scans  
+* `data/results/` – Segmentation results with plant/background labels  
+* `data/phena_ready/` – Final formatted files for Phenospex trait estimation
+
+You do **not** need to manually run each step—just provide raw data in the required format, and the entire process runs through the code automatically.
+
+--- 
+
+
+
 
 # 🔹 Source Code Usage
 
