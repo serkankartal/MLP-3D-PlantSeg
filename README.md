@@ -165,7 +165,8 @@ pip install -r requirements.txt
 ```
 
 ### 💡 Optional but recommended: Use a virtual environment to keep dependencies isolated:
-```python -m venv venv
+```
+python -m venv venv
 source venv/bin/activate   # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
