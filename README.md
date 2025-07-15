@@ -172,7 +172,7 @@ This will install all the necessary packages (e.g., TensorFlow, scikit-learn, Op
 
 ---
 
-## Running Preprocessing
+Running Preprocessing
 
 ```bash
 python code/preprocessing.py --input_folder data/raw --output_folder data/preprocessed
