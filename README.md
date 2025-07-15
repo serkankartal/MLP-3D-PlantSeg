@@ -156,6 +156,21 @@ You do **not** need to manually run each step—just provide raw data in the req
 
 ---
 
+### 🛠️ Environment Setup
+
+Before running the code, make sure to install the required Python packages using the provided `requirements.txt` file:
+
+```bash
+pip install -r requirements.txt
+
+### 💡 Optional but recommended: Use a virtual environment to keep dependencies isolated:
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+This will install all the necessary packages (e.g., TensorFlow, scikit-learn, Open3D) with the correct versions to ensure compatibility with the codebase.
+---
+
 ## Running Preprocessing
 
 ```bash
