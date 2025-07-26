@@ -20,19 +20,20 @@ Please cite as:
 ## Table of Contents
 
 - [Paper and Citation](#paper-and-citation)
-- [Repository Structure](#repository-structure)
-- [Overview of the Full Workflow](#overview-of-the-full-workflow)
-- [The Preprocessing Pipeline](#the-preprocessing-pipeline)
-- [Final Trained Model](#final-trained-model)
-- [Processing Your Own Raw Data](#processing-your-own-raw-data)
-- [Source Code Usage](#source-code-usage)
-  - [Running Preprocessing](#running-preprocessing)
-  - [Running Inference](#running-inference)
+- [Overview of the Full Workflow](#-overview-of-the-full-workflow)
+- [Raw Data Preprocessing](#raw-data-preprocessing)
+- [Final Trained Model](#-final-trained-model)
+- [Sample Dataset](#-sample-dataset)
+- [Processing Your Own Raw Data](#-processing-your-own-raw-data)
+  - [Required Input Format](#️-required-input-format)
+  - [Environment Setup](#️-environment-setup)
+- [Running the Code](#running-the-code)
   - [Training or Retraining the Model](#training-or-retraining-the-model)
-- [Example Outputs](#example-outputs)
-- [Sample Dataset](#sample-dataset)
+  - [Running Plant-Background Segmentation](#running-plant-backgorund-segmentation)
+- [Example Outputs](#-example-outputs)
 - [License](#license)
 - [Contributing & Contact](#contributing--contact)
+
  
 
 ---
