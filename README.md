@@ -90,9 +90,7 @@ We provide a sample dataset for to demonstrate the output of both our proposed p
 --- 
 You can train your own segmentation model by running the `TrainSegmentation.py` code located under `NN_Codes`, after preparing your data in the appropriate format within the `data` folder.
 
-Once your model is trained, it can be used for segmenting new data. Before segmentation, raw data must be prepared using the preprocessing steps described in the documentation, including rotation, merging, and voxelization, which require the Phenospex executable.
-
-All of these steps are automated within the Preprocess.py script. When you run this script, it will:
+Once your model is trained, it can be used for segmenting new data. Before segmentation, raw data must be prepared using the preprocessing steps described in the documentation, including rotation, merging, and voxelization, which require the Phenospex executable. All of these steps are automated within the Preprocess.py script. When you run this script, it will:
 
 - Automatically detect and preprocess any new, unprocessed data,
 
