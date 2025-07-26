@@ -1,8 +1,6 @@
 # AI-Driven Background Segmentation for 3D Plant Phenotyping
 
 This repository contains the workflow, visual outputs, and evaluation results of an AI-based method for background segmentation from 3D plant scans.  
-The full source code and trained model will be released after the acceptance and publication of the associated paper.
-
 ---
 
 ## Paper and Citation
@@ -79,7 +77,7 @@ The background segmentation model is a **Multi-Layer Perceptron (MLP)** with:
 ---
 ## 🌱 Sample Dataset
 
-We provide a sample dataset for the chickpea plant to demonstrate the output of both our proposed pipeline and the classical method.
+We provide a sample dataset for to demonstrate the output of both our proposed pipeline and the classical method.
 
 ### 📦 Contents:
 - Raw 3D scans from two different camera views
@@ -87,12 +85,17 @@ We provide a sample dataset for the chickpea plant to demonstrate the output of 
 - Segmented output using a **classical height-based approach**
 
 📥 **Download the sample dataset (~200MB)**:  
+buraya bır verı setı linki  daha ekllenecek data diye. 
 👉 [View on Figshare](https://figshare.com/articles/dataset/Sample_3D_Chickpea_Dataset_for_AI-Based_and_Classical_Plant_Segmentation/28796219)
 
-> 🛑 The full dataset and intermediate results will be released after the publication of our related research article.  
-> If you need early access, please contact us.
-> 
----  
+--- 
+You can train your own segmentation model by running the `TrainSegmentation.py` code located under `NN_Codes`, after preparing your data in the appropriate format within the `data` folder.
+
+After training, you can use this model to segment your data. First, your raw data needs to be prepared for segmentation by passing it through the preprocessing steps detailed in the documentation, utilizing the `phenospex` executable.
+
+Subsequently, run the `Preprocess.py` file. This script will first prepare any new, unprocessed data by performing operations like rotation and merging. Following this, the `segmentWithMLPPhenospex` function within the same Python file will separate plant data from soil data. Other functions within this script will then handle evaluation and additional processing to generate the output files and data.
+
+The data will be saved in the `./data/` folder.
 
 ## 🔄 Processing Your Own Raw Data
 
