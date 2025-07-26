@@ -120,48 +120,6 @@ data/raw_data/
 │   └── scan_001_b.ply
 
 ```
-
-### ⚙️ Automatic Processing Steps
-
-Once your data is placed in the `data/raw_data/` directory, the following pipeline is triggered step-by-step:
-
-1. **Raw Data Preprocessing**
-
- * Rotates scans for alignment on the x-plane.
- * Merges dual scans into a single unified point cloud.
- * Applies voxelization to reduce data density and normalize point distribution.
- * Performs outlier smoothing to standardize color values across leaf surfaces.
-
-2. **AI-Based Background Segmentation**
-
- * The preprocessed data is passed through the pre-trained MLP model.
- * Each point is classified as **plant** or **background** using RGB, NIR, and XYZ features.
-
-3. **Microplot Separation and Trait Estimation**
-
- * Plant points are cropped based on tray coordinates.
- * Prepared outputs are sent to Phenospex’s Phena binary for **leaf area estimation** and further trait analysis.
-
-### 📤 Output Files
-
-Intermediate and final outputs are automatically saved into the following directories:
-
-* `data/preprocessed/` – Voxelized and smoothed scans  
-* `data/results/` – Segmentation results with plant/background labels  
-* `data/phena_ready/` – Final formatted files for Phenospex trait estimation
-
-You do **not** need to manually run each step—just provide raw data in the required format, and the entire process runs through the code automatically.
-
---- 
-
-
-
-
-# 🔹 Source Code Usage
-
-> ⚠️ **Note:** `.py` source code files are currently placeholders.  
-> Full code will be uploaded after paper acceptance.
-
 ---
 
 ### 🛠️ Environment Setup
@@ -180,28 +138,18 @@ pip install -r requirements.txt
 
 This will install all the necessary packages (e.g., TensorFlow, scikit-learn, Open3D) with the correct versions to ensure compatibility with the codebase.
 ```
----
-
-## Running Preprocessing
-
-```bash
-python code/preprocessing.py --input_folder data/raw --output_folder data/preprocessed
-```
-
----
-
-## Running Inference
-
-```bash
-python code/inference.py --model_path data/trained_model/final_mlp_model.h5 --input_folder data/preprocessed --output_folder data/results
-```
-
----
-
+--- 
+ 
 ## Training or Retraining the Model
 
 ```bash
-python code/train_model.py --data_folder data/preprocessed --save_model_to data/trained_model
+python NN_Codes/TrainSegmentation.py  
+```
+
+## Running Plant-Backgorund Segmentation
+
+```bash
+python Preprocess.py  
 ```
 
 Hyperparameter tuning using [Keras Tuner Documentation](https://keras.io/keras_tuner/).
