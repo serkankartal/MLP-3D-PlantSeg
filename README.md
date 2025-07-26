@@ -54,7 +54,7 @@ The dataset includes a preprocessing code that can be used for the raw point clo
 1.  **Rotation** of point clouds to align the plant on the x-plane.
 2.  **Merging** merging the point clouds from the two scanners into one file.
 3.  **Voxelization** to adjust the resolution of the point cloud.
-4.  **Soil Segmentation** to separate plants from soil and trays using AI-based algorithms.
+4.  **Smoothing** to reduce noise by averaging color values with neighboring points. 
 
 Refer to the published paper for detailed description.
  
