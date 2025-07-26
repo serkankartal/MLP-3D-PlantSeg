@@ -84,16 +84,23 @@ We provide a sample dataset for to demonstrate the output of both our proposed p
 - Segmented output using our proposed **AI-based method**
 - Segmented output using a **classical height-based approach**
 
-📥 **Download the sample dataset (~200MB)**:  
-buraya bır verı setı linki  daha ekllenecek data diye. 
+📥 **Download the sample dataset **:  
 👉 [View on Figshare](https://figshare.com/articles/dataset/Sample_3D_Chickpea_Dataset_for_AI-Based_and_Classical_Plant_Segmentation/28796219)
 
 --- 
 You can train your own segmentation model by running the `TrainSegmentation.py` code located under `NN_Codes`, after preparing your data in the appropriate format within the `data` folder.
 
-After training, you can use this model to segment your data. First, your raw data needs to be prepared for segmentation by passing it through the preprocessing steps detailed in the documentation, utilizing the `phenospex` executable.
+Once your model is trained, it can be used for segmenting new data. Before segmentation, raw data must be prepared using the preprocessing steps described in the documentation, including rotation, merging, and voxelization, which require the Phenospex executable.
 
-Subsequently, run the `Preprocess.py` file. This script will first prepare any new, unprocessed data by performing operations like rotation and merging. Following this, the `segmentWithMLPPhenospex` function within the same Python file will separate plant data from soil data. Other functions within this script will then handle evaluation and additional processing to generate the output files and data.
+All of these steps are automated within the Preprocess.py script. When you run this script, it will:
+
+Automatically detect and preprocess any new, unprocessed data,
+
+Apply the segmentWithMLPPhenospex function to distinguish plant points from soil/background,
+
+Execute evaluation and postprocessing functions to generate and save all necessary output files and results.
+
+This enables an end-to-end segmentation pipeline with minimal manual intervention.
 
 The data will be saved in the `./data/` folder.
 
