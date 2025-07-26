@@ -94,11 +94,11 @@ Once your model is trained, it can be used for segmenting new data. Before segme
 
 All of these steps are automated within the Preprocess.py script. When you run this script, it will:
 
-Automatically detect and preprocess any new, unprocessed data,
+- Automatically detect and preprocess any new, unprocessed data,
 
-Apply the segmentWithMLPPhenospex function to distinguish plant points from soil/background,
+- Apply the segmentWithMLPPhenospex function to distinguish plant points from soil/background,
 
-Execute evaluation and postprocessing functions to generate and save all necessary output files and results.
+- Execute evaluation and postprocessing functions to generate and save all necessary output files and results.
 
 This enables an end-to-end segmentation pipeline with minimal manual intervention.
 
