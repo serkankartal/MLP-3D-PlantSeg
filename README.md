@@ -88,7 +88,7 @@ We provide a sample dataset for to demonstrate the output of both our proposed p
 
 📥 **Download the sample dataset** :  
 
-Replace the existing data folder in the GitHub repository with the one you downloaded.  
+Replace the existing data folder in the GitHub repository with the data folder you downloaded.  
 
 👉 [View on Figshare](https://figshare.com/articles/dataset/Sample_3D_Chickpea_Dataset_for_AI-Based_and_Classical_Plant_Segmentation/28796219)
 
@@ -107,9 +107,6 @@ This enables an end-to-end segmentation pipeline with minimal manual interventio
 
 The data will be saved in the `./data/` folder.
 
-## 🔄 Processing Your Own Raw Data
-
-To process your own 3D plant scans using the AI-based segmentation pipeline provided in this repository, follow the simple steps below. The entire workflow—from raw data preprocessing to AI-driven background segmentation and final trait estimation—is fully automated after placing your raw files in the appropriate folder.
 
 ### 🗂️ Required Input Format
 
