@@ -1,11 +1,11 @@
-# AI-Driven Background Segmentation for 3D Plant Phenotyping
+# AI-Driven Background Segmentation for High-Throughput 3D Plant Scans
 
 This repository contains the workflow, visual outputs, and evaluation results of an AI-based method for background segmentation from 3D plant scans.  
 ---
 
 ## Paper and Citation
 
-**Title:** Using MLP to Improve Background Segmentation of 3D Plant Scans and Accuracy of Trait Assessment in Phenomics  
+**Title:** AI-Driven Background Segmentation for High-Throughput 3D Plant Scans
 **Authors:** SK, JM, TharanyaM, JK, AG, RekhaB, Vojtěch Mikeš, KIT, PSX  
 **Journal:** IEEE Access (under submission)  
 **Link:** *(will be added after publication)*
