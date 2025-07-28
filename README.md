@@ -91,6 +91,12 @@ Replace the existing data folder in the GitHub repository with the one you downl
 
 👉 [View on Figshare](https://figshare.com/articles/dataset/Sample_3D_Chickpea_Dataset_for_AI-Based_and_Classical_Plant_Segmentation/28796219)
 
+
+
+📥 **Download the sample dataset (~200MB)**:  
+Replace the existing data folder in the GitHub repository with the one you downloaded.
+👉 [View on Figshare](https://figshare.com/articles/dataset/Sample_3D_Chickpea_Dataset_for_AI-Based_and_Classical_Plant_Segmentation/28796219)
+
 --- 
 You can train your own segmentation model by running the `TrainSegmentation.py` code located under `NN_Codes`, after preparing your data in the appropriate format within the `data` folder.
 
