@@ -10,7 +10,7 @@ This repository contains the workflow, visual outputs, and evaluation results of
 **Journal:** IEEE Access (under submission)  
 **Link:** *(will be added after publication)*
 
-Please cite as:
+Please cite as: 
 
 > **Note:** The full citation will be added once the paper is published.  
 > Until then, this repository remains partially restricted (code and model release pending).
