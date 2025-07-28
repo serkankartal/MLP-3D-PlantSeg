@@ -5,7 +5,7 @@ This repository contains the workflow, visual outputs, and evaluation results of
 
 ## Paper and Citation
 
-**Title:** AI-Driven Background Segmentation for High-Throughput 3D Plant Scans
+**Title:** AI-Driven Background Segmentation for High-Throughput 3D Plant Scans  
 **Authors:** SK, JM, TharanyaM, JK, AG, RekhaB, Vojtěch Mikeš, KIT, PSX  
 **Journal:** IEEE Access (under submission)  
 **Link:** *(will be added after publication)*
