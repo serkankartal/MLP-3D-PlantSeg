@@ -86,7 +86,7 @@ We provide a sample dataset for to demonstrate the output of both our proposed p
 - Segmented output using a **classical height-based approach**
 
 
-📥 **Download the sample dataset **:  
+📥 **Download the sample dataset** :  
 
 Replace the existing data folder in the GitHub repository with the one you downloaded.  
 
